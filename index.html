@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hAI.OmniRoute</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 600px;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+        
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+        
+        .description {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        
+        .links {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        a {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+        
+        .btn-secondary {
+            background: #f0f0f0;
+            color: #333;
+        }
+        
+        .btn-secondary:hover {
+            background: #e0e0e0;
+            transform: translateY(-2px);
+        }
+        
+        .note {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>hAI.OmniRoute</h1>
+        <p class="subtitle">AI Management Dashboard & Router — Portainer Stack</p>
+        
+        <p class="description">
+            hAI.OmniRoute ist ein vorkonfigurierter Portainer-Stack, der OmniRoute als AI-Gateway
+            mit Web-Dashboard und OpenAI-kompatibler API bereitstellt. Starte deinen lokalen
+            AI-Router mit nur einem Stack.
+        </p>
+        
+        <div class="links">
+            <a href="https://github.com/jbkunama1/hAI.OmniRoute" class="btn-primary">GitHub Repo</a>
+            <a href="https://github.com/diegosouzapw/OmniRoute" class="btn-secondary">OmniRoute Original</a>
+        </div>
+        
+        <p class="note">
+            Tipp: Importiere dieses Repo direkt in Portainer als Stack und passe nur noch deine
+            Umgebungsvariablen an.
+        </p>
+    </div>
+</body>
+</html>

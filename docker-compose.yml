@@ -1,0 +1,55 @@
+# =============================================================
+# hAI.OmniRoute - Portainer Stack Template
+# Base Image: ghcr.io/jbkunama1/hai.omniroute
+# Port: 20128 | Data Dir: ./data
+# =============================================================
+
+version: "3.9"
+
+services:
+  omniroute:
+    image: ghcr.io/jbkunama1/hai.omniroute:latest
+    container_name: hai_omniroute
+    restart: unless-stopped
+
+    ports:
+      - "${ROUTER_PORT:-20128}:20128"
+
+    volumes:
+      - ./data:/app/data
+
+    environment:
+      - DATA_DIR=/app/data
+      - PORT=20128
+      - HOSTNAME=0.0.0.0
+      - TZ=${TZ:-Europe/Berlin}
+      # Optional: Auth (abhängig von deiner OmniRoute-Konfiguration)
+      - INITIAL_PASSWORD=${INITIAL_PASSWORD:-123456}
+
+    networks:
+      - omniroute_net
+
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:20128"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 15s
+
+    labels:
+      - "com.docker.compose.project=hai-omniroute"
+      - "org.opencontainers.image.title=hAI.OmniRoute"
+      - "org.opencontainers.image.description=AI Routing Proxy with OmniRoute"
+      - "org.opencontainers.image.version=1.0.0"
+
+networks:
+  omniroute_net:
+    name: omniroute_net
+    driver: bridge
+
+# =============================================================
+# USAGE:
+#   Portainer: Stacks > Add Stack > Repository
+#              URL: https://github.com/jbkunama1/hAI.OmniRoute
+#   Dashboard: http://<HOST-IP>:20128
+# =============================================================
